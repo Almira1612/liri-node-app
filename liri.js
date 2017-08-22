@@ -92,19 +92,13 @@ function myTweets(){
 //6e35f47012b244288f7deb518a6e3875
 function spotify (songName){
   
-  if (songName === undefined){
-  	songName = "The Sign"
-  }
+  if (songName === ""){
+  	songName = "The Sign Ace of Base";
+  };
 	var spotify = new Spotify({
   id: "f6b5a62182af435b8bf6aeb6efd92f31",
   secret: "6e35f47012b244288f7deb518a6e3875"
 });
-	
-	
-	
-	if (songName == null) {
-    songName = 'The Sign';
-  };
 
    //params = songName;
    spotify.search({ type:"track", query: songName}, function(err,data){
@@ -133,12 +127,12 @@ function spotify (songName){
 
  // movie function
  function movieThis(movieName){
-
+    if (movieName === "") {
+       movieName = 'Mr. Nobody';
+      }; 
  	
   var urlHit= "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=40e9cece";
- if (movieName == null) {
-    movieName = 'Mr Nobody';
-  } 
+ 
 
  request(urlHit, function(error, response, body) {
     if (!error && response.statusCode == 200) {
